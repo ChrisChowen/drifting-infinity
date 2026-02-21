@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - db-data:/app/data
+    env_file:
+      - backend/.env
+    environment:
+      - DEBUG=false
+    restart: unless-stopped
+
+volumes:
+  db-data:
